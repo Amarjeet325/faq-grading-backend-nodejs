@@ -1,6 +1,9 @@
 
 # Step 1 — Base image
-FROM node:18
+FROM node:latest
+
+# Install nodemon globally
+RUN npm install -g nodemon
 
 # Step 2 — Make app directory
 WORKDIR /app

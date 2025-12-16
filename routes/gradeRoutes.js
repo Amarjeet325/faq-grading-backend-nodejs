@@ -25,6 +25,9 @@ const {createGradeSchema,updateGradeSchema,} = require("../validations/gradeVali
 
 router.post( "/",rateLimiter,validate(createGradeSchema),gradeController.createGrade);
 
+router.get("/all", rateLimiter, cache, gradeController.getGrades);
+
+// Support query params like: /api/grades?name=qw
 router.get("/", rateLimiter, cache, gradeController.getGrades);
 
 router.get("/:id", rateLimiter, gradeController.getGrade);
