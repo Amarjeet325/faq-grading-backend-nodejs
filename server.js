@@ -16,17 +16,6 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// Routes
-// const asyncHandler = require("./middleware/asyncHandler");
-// const Product = require("./models/Product");
-// app.get(
-//   "/products",
-//   asyncHandler(async (req, res) => {
-//     const products = await Product.find();
-//     res.status(200).json(products);
-//   })
-// );
-
 
 
 app.use("/api/faqs", faqRoutes);
@@ -39,3 +28,5 @@ app.use(errorHandler);
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}...`);
 });
+
+
