@@ -7,7 +7,11 @@ module.exports = async (req, res, next) => {
     const cachedData = await redisClient.get(key);
 
     if (cachedData) {
-      return res.status(200).json({success: true,fromCache: true, data: JSON.parse(cachedData), });
+      return res.status(200).json({
+        success: true,
+        fromCache: true, 
+        data: JSON.parse(cachedData),
+       });
     }
 
     req.redisKey = key;
@@ -16,3 +20,5 @@ module.exports = async (req, res, next) => {
     next(); // If Redis fails, continue without caching
   }
 };
+
+
